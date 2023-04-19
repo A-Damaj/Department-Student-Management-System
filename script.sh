@@ -15,10 +15,19 @@ function count_students  {
 }
 
 
-function display_info {
-
-
+display_info() {
+  echo ""
+  read -p "Enter the filename to save the student info to: " filename
+  echo "" > "$filename"
+  for file in $(ls "$student_folder"); do
+    student_info=$(grep -oP '^[\w-]+, [\w-]+,\K\s*\d+' "$student_folder"/"$file")
+    gpa=$(grep -oP 'GPA:\s*\d+\.\d+' "$student_folder"/"$file")
+    major=$(grep -oP 'Major:\s*\S+' "$student_folder"/"$file")
+    echo "$student_info, $gpa, $major" >> "$filename"
+    echo "$student_info, $gpa, $major" 
+  done 
 }
+
 
 
 function delete_student {
