@@ -1,5 +1,15 @@
 #!/bin/bash
 
+
+function list_all {
+  # List all students in alphabetical order by last name
+  for file in $(ls "$student_folder"); do
+    echo "$(grep -m 1 '^\w\+, \w\+' "$student_folder/$file")"
+  done | sort -k2
+}
+
+
+
 # Define variables
 student_folder="CurrentStudents"   # directory where student files are stored
 backup_folder="CurrentStudentsBackup"   # name of backup folder
@@ -44,3 +54,29 @@ while true; do   # start an infinite loop
         esac
     done
 done
+
+
+
+
+
+f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
