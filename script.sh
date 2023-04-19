@@ -9,6 +9,28 @@ function list_all {
 }
 
 
+function count_students  {
+
+
+}
+
+
+function display_info {
+
+
+}
+
+
+function delete_student {
+
+
+}
+
+
+function backup  {
+
+
+}
 
 # Define variables
 student_folder="CurrentStudents"   # directory where student files are stored
@@ -54,29 +76,4 @@ while true; do   # start an infinite loop
         esac
     done
 done
-
-
-
-
-
-f
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
