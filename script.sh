@@ -24,9 +24,10 @@ display_info() {
     gpa=$(grep -oP 'GPA:\s*\d+\.\d+' "$student_folder"/"$file")
     major=$(grep -oP 'Major:\s*\S+' "$student_folder"/"$file")
     echo "$student_info, $gpa, $major" >> "$filename"
-    echo "$student_info, $gpa, $major" 
-  done 
+    echo "$student_info, $gpa, $major"
+  done
 }
+
 
 
 
