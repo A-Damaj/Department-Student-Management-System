@@ -9,19 +9,21 @@ function list_all {
 }
 
 
-count_students {
-  read -p "Enter the directory containing student files: " student_folder
+
+count_students() {
   echo ""
 
   # Get a list of all majors in the files
-  majors=$(grep -oP 'Major:\s*\S+' "$student_folder"/* | cut -d " " -f 2- | sort | uniq)
+  majors=$(grep -oP 'Major:\s*\S+ ?(\w+)?' CurrentStudents/*  | cut -d " " -f 2- | sort | uniq | tr -s ' ' '_')
 
   # Iterate over each major and count the number of students
   for major in $majors; do
-    count=$(grep -l "Major:\s*$major$" "$student_folder"/* | wc -l)
+    major=$(echo $major | tr -s '_' ' ')
+    count=$(grep -l "Major:\s*$major" "$student_folder"/* | wc -l)
     echo "$count students majoring in $major"
   done | sort -rn
 }
+
 
 
 
