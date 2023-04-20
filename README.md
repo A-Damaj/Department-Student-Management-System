@@ -4,7 +4,7 @@ This is a command-line program for managing a database of student information. I
 ## Usage
 To run the program, navigate to the directory containing the student_db.sh file and run the following command:
 
-./student_db.sh
+`./student_db.sh`
 
 This will start the program and display a menu of options.
 
