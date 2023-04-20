@@ -43,15 +43,46 @@ display_info() {
 
 
 
-function delete_student {
+delete_student() {
+  echo ""
+  read -p "Enter the ID of the student to delete: " id
 
+  # Check if ID is in valid format
+  if [[ ! "$id" =~ ^[0-9]{9}$ ]]; then
+    echo "Error: Invalid student ID format. Must be 9 digits long."
+    return
+  fi
 
+  # Search for student file with matching ID
+  student_file=$(find "$student_folder" -type f -name "*.txt" -exec grep -q "$id" '{}' \; -print)
+
+  # Check if student file was found
+  if [[ -z "$student_file" ]]; then
+    echo "Error: No student with ID $id found in database."
+    return
+  fi
+
+  # Confirm deletion with user
+  read -p "Are you sure you want to delete the file for student $id? (y/n): " confirm
+  if [[ "$confirm" != "y" ]]; then
+    echo "Deletion cancelled."
+    return
+  fi
+
+  # Delete student file
+  rm "$student_file"
+  echo "File for student $id successfully deleted."
 }
 
 
-function backup  {
 
-
+backup() {
+  # Create backup folder with current date
+  backup_folder_name="$backup_folder.$date"
+  mkdir -f "$backup_folder_name"
+  cp -r "$student_folder" "$backup_folder_name"
+  echo "Backup created in folder $backup_folder_name"
+  exit 0
 }
 
 # Define variables
