@@ -145,10 +145,12 @@ backup() {
 student_folder="CurrentStudents"   # directory where student files are stored
 backup_folder="CurrentStudentsBackup"   # name of backup folder
 date=$(date +%d_%B_%y)   # variable for storing the current date in the format day_FullMonthName_Last2DigitsYear
-
+c=0
 while true; do   # start an infinite loop
     echo ""   # print an empty line
-
+    if[ c>=3 ]; then #if 3 missinputs or more exit 
+      exit 0
+    fi
     # Print the menu options and prompt user to choose an option
     # The "select" command displays a numbered list of options and takes care of user input validation
     PS3="Please choose an option (1-6): "   # Set the PS3 environment variable prompt to display a message for selecting an option from the menu
@@ -180,6 +182,7 @@ while true; do   # start an infinite loop
                 exit 0   # if choice is 6, print a message and exit the program with status code 0 (success)
                 ;;
             *)   # if choice is not between 1-6, print an error message and prompt user to choose again
+                c=c+1
                 echo "Invalid choice. Please choose an option from 1 to 6."
                 ;;
         esac
