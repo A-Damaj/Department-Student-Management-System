@@ -129,7 +129,7 @@ backup() {
   backup_folder_name="$backup_folder.$date"
   
   # Create new directory for backup
-  mkdir -f "$backup_folder_name"
+  mkdir -p "$backup_folder_name"
   
   # Copy all files and subdirectories from student_folder to backup_folder_name
   cp -r "$student_folder" "$backup_folder_name"
