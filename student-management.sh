@@ -14,6 +14,7 @@ function list_all {
 }
 
 
+
 # Define the count_students function
 count_students() {
 
@@ -49,6 +50,8 @@ count_students() {
   done | sort -rn # Sort the output in reverse numerical order
 }
 
+
+
 # Define the display_info function
 display_info() {
   # Display a blank line for formatting
@@ -78,6 +81,8 @@ display_info() {
     echo "$student_info, $gpa, $major"
   done
 }
+
+
 
 # Function to delete a student from the database
 delete_student() {
@@ -110,11 +115,13 @@ delete_student() {
     echo "Deletion cancelled."
     return
   fi
-
+  
   # Delete the student file
   rm "$student_file"
   echo "File for student $id successfully deleted."
 }
+
+
 
 # Function for creating backup of student database
 backup() {
