@@ -116,13 +116,21 @@ delete_student() {
   echo "File for student $id successfully deleted."
 }
 
-
+# Function for creating backup of student database
 backup() {
   # Create backup folder with current date
   backup_folder_name="$backup_folder.$date"
+  
+  # Create new directory for backup
   mkdir -f "$backup_folder_name"
+  
+  # Copy all files and subdirectories from student_folder to backup_folder_name
   cp -r "$student_folder" "$backup_folder_name"
+  
+  # Print confirmation message to the terminal
   echo "Backup created in folder $backup_folder_name"
+  
+  # Exit the program with status 0 (success)
   exit 0
 }
 
