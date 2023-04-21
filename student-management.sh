@@ -183,7 +183,7 @@ while true; do   # start an infinite loop
                 exit 0   # if choice is 6, print a message and exit the program with status code 0 (success)
                 ;;
             *)   # if choice is not between 1-6, print an error message and prompt user to choose again
-                c=c+1
+                c=$((c+1))
                 echo "Invalid choice. Please choose an option from 1 to 6."
                 ;;
         esac
