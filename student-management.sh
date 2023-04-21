@@ -148,9 +148,10 @@ date=$(date +%d_%B_%y)   # variable for storing the current date in the format d
 c=0
 while true; do   # start an infinite loop
     echo ""   # print an empty line
-    if[ c>=3 ]; then #if 3 missinputs or more exit 
-      exit 0
+    if [ $c -ge 3 ]; then #if 3 or more missinputs exit
+     exit 0
     fi
+
     # Print the menu options and prompt user to choose an option
     # The "select" command displays a numbered list of options and takes care of user input validation
     PS3="Please choose an option (1-6): "   # Set the PS3 environment variable prompt to display a message for selecting an option from the menu
