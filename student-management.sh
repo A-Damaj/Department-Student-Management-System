@@ -184,7 +184,7 @@ while true; do   # start an infinite loop
                 ;;
             *)   # if choice is not between 1-6, print an error message and prompt user to choose again
                 c=$((c+1))
-                if [ $c -ge 3 ]; then
+                if [ $c -ge 3 ]; then #if 3 or more invalid choices exit
                     echo "Too many invalid choices. Exiting program."
                     exit 0
                 fi
